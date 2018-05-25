@@ -11,7 +11,7 @@ This endpoint allow you send the plain text email.
 ## Request 
 
 | *key* | *type* | *required* |
-| ------ | ----------- | ------ | ----------- |
+| ------ | ----------- | ------ | 
 | to | array or email contact | Y | 
 | sender | array or email contact  | Y |
 | subject | array or email contact  | Y |
