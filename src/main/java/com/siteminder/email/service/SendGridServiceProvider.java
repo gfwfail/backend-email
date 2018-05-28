@@ -32,13 +32,10 @@ public class SendGridServiceProvider extends MailServiceProvider {
     public boolean sendEmail(Email email) throws IOException {
         logger.info("sendgrid");
         RequestBody jsonBody = buildJson(email);
-
-        Request request;
-
-        request = new Request.Builder().url(env.getProperty("sendgrid.url")).post(jsonBody).addHeader
+        Request request = new Request.Builder().url(env.getProperty("sendgrid.url")).post(jsonBody).addHeader
                 ("Authorization", "Bearer " + env.getProperty("sendgrid.key")).build();
         Response response = client.newCall(request).execute();
-        logger.info(response.body().string());
+
         return response.isSuccessful();
     }
 

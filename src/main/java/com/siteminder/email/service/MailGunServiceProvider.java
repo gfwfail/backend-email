@@ -16,11 +16,9 @@ public class MailGunServiceProvider extends MailServiceProvider {
 
     @Override
     public boolean sendEmail(Email email) throws IOException {
+        logger.info("mailgun");
         RequestBody formBody = buildForm(email);
-
-        Request request;
-
-        request = new Request.Builder()
+        Request request = new Request.Builder()
                 .url(env.getProperty("mailgun.url"))
                 .post(formBody)
                 .addHeader("Authorization", Credentials.basic("api", env.getProperty("mailgun.key")))
@@ -33,14 +31,14 @@ public class MailGunServiceProvider extends MailServiceProvider {
     Build form payload for mailgun.
      */
     private FormBody buildForm(Email email) {
-        System.out.println( email.getToRecipients().toString());
-        FormBody.Builder formBodyBuilder =  new FormBody.Builder()
+        System.out.println(email.getToRecipients().toString());
+        FormBody.Builder formBodyBuilder = new FormBody.Builder()
                 .add("from", email.getSender().toString())
                 .add("subject", email.getSubject()).add("text", email.getContent());
 
-        email.getToRecipients().forEach(to->formBodyBuilder.add("to",to.toString()));
-        email.getCcRecipients().forEach(cc->formBodyBuilder.add("cc",cc.toString()));
-        email.getBccRecipients().forEach(bcc->formBodyBuilder.add("bcc",bcc.toString()));
+        email.getToRecipients().forEach(to -> formBodyBuilder.add("to", to.toString()));
+        email.getCcRecipients().forEach(cc -> formBodyBuilder.add("cc", cc.toString()));
+        email.getBccRecipients().forEach(bcc -> formBodyBuilder.add("bcc", bcc.toString()));
 
         return formBodyBuilder.build();
     }
