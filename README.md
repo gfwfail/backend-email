@@ -19,7 +19,7 @@ This endpoint allow you send the plain text email.
 | cc |  array or email contact | N | 
 | bcc |  array or email contact | N |
 
- Email contact can be one of the following format:
+ Email contact can be one of the following formats:
  ```
  {"name":"Johh name","email":"john@email.com"}
  ```
@@ -27,10 +27,9 @@ This endpoint allow you send the plain text email.
  ```
  {"email":"john@email.com"}
  ```
- or just simply the email string
+ or simply just the email string
  ```
  "john.com"
-
 ```
 
 ## Demo 
