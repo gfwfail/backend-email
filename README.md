@@ -33,7 +33,7 @@ This endpoint allow you send the plain text email.
 
 POST http://java-env.bm3tfm73sg.ap-southeast-2.elasticbeanstalk.com/sendEmail
 ```
-{
+    {
 	"sender":"test@test.com",
 	"content":"xxx",
 	"subject":"xxx",
