@@ -5,10 +5,6 @@
 
 package com.siteminder.email.entity;
 
-import org.springframework.validation.FieldError;
-
-import java.util.List;
-
 public class ValidationErrorField {
 
     private String field;

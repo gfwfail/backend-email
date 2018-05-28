@@ -5,8 +5,6 @@
 
 package com.siteminder.email.entity;
 
-import java.util.List;
-
 public class ErrorResponse {
 
     private String message;

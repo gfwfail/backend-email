@@ -5,16 +5,11 @@
 
 package com.siteminder.email.service;
 
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.siteminder.email.entity.Email;
 import com.siteminder.email.entity.EmailContact;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -24,7 +19,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class SendGridServiceProvider extends MailServiceProvider {
-    static final Logger logger = LoggerFactory.getLogger(SendGridServiceProvider.class);
     private final OkHttpClient client = new OkHttpClient();
     private static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/json; charset=utf-8");
 
@@ -42,7 +36,7 @@ public class SendGridServiceProvider extends MailServiceProvider {
     /*
        Build json payload for sendgrid.
    */
-    private RequestBody buildJson(Email email) throws JsonProcessingException {
+    private RequestBody buildJson(Email email) {
         JSONObject jsonObject = new JSONObject();
         JSONObject personalizations = new JSONObject();
         JSONObject content = new JSONObject();

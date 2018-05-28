@@ -1,7 +1,7 @@
 package com.siteminder.email.entity;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 public class EmailContact {
     private String name;

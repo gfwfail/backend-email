@@ -2,8 +2,6 @@ package com.siteminder.email.service;
 
 import com.siteminder.email.entity.Email;
 import okhttp3.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -11,7 +9,6 @@ import java.io.IOException;
 
 @Service
 public class MailGunServiceProvider extends MailServiceProvider {
-    static final Logger logger = LoggerFactory.getLogger(MailGunServiceProvider.class);
     private final OkHttpClient client = new OkHttpClient();
 
     @Override

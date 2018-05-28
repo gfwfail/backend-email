@@ -1,7 +1,6 @@
 package com.siteminder.email.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.siteminder.email.entity.Email;
 import com.siteminder.email.entity.ValidResponse;
 import com.siteminder.email.exception.MailServiceUnavaliableException;
