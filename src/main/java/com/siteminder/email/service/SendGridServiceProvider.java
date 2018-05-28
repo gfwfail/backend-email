@@ -45,7 +45,6 @@ public class SendGridServiceProvider extends MailServiceProvider {
     private RequestBody buildJson(Email email) throws JsonProcessingException {
         JSONObject jsonObject = new JSONObject();
         JSONObject personalizations = new JSONObject();
-
         JSONObject content = new JSONObject();
         content.put("type", "text/plain");
         content.put("value", email.getContent());
@@ -57,9 +56,11 @@ public class SendGridServiceProvider extends MailServiceProvider {
         if (email.getToRecipients().size() > 0) {
             personalizations.put("to", buildEmailContactCollection(email.getToRecipients()));
         }
+
         if (email.getCcRecipients().size() > 0) {
             personalizations.put("cc", buildEmailContactCollection(email.getToRecipients()));
         }
+
         if (email.getBccRecipients().size() > 0) {
             personalizations.put("bcc", buildEmailContactCollection(email.getToRecipients()));
         }
@@ -75,10 +76,12 @@ public class SendGridServiceProvider extends MailServiceProvider {
     private JSONObject buildEmailContact(EmailContact emailContact) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("email", emailContact.getEmail());
+
         if (emailContact.getName() == null) {
             jsonObject.put("name", emailContact.getName());
 
         }
+
         return jsonObject;
     }
 

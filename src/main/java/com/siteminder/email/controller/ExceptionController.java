@@ -22,6 +22,7 @@ public class ExceptionController {
         ValidationErrorResponse response = new ValidationErrorResponse();
         response.setMessage("Invalid inputs.");
         response.setErrors(result.getFieldErrors().stream().map(fieldError -> new ValidationErrorField(fieldError.getField(), fieldError.getDefaultMessage())).collect(Collectors.toList()));
+
         return new ResponseEntity<>(response, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
@@ -29,6 +30,7 @@ public class ExceptionController {
     public ResponseEntity<ErrorResponse> exceptionHandler(Exception e) {
         ErrorResponse response = new ErrorResponse();
         response.setMessage("MailService is currently not avaliable.");
+
         return new ResponseEntity<>(response, HttpStatus.SERVICE_UNAVAILABLE);
     }
 }

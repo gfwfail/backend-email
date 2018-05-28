@@ -29,6 +29,7 @@ public class MailController {
         ValidResponse validResponse = new ValidResponse();
         validResponse.setMessage("Email has been successfully Sent.");
         validResponse.setPayload(email);
+
         return new ResponseEntity<ValidResponse>(validResponse, HttpStatus.OK);
     }
 }

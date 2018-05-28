@@ -31,11 +31,15 @@ public class MailService {
             logger.error("No MailService Provider defined. ");
             throw new MailServiceUnavaliableException();
         }
+
         try {
+
             for (MailServiceProvider mailServiceProvider : providers) {
                 logger.info("Sending email --- " + mailServiceProvider.getClass() + " --- " + email.getSubject());
+
                 if (mailServiceProvider.sendEmail(email)) return;
             }
+
         } catch (Exception e) {
             logger.error("MailServiceProvider Failed. ", e);
         }

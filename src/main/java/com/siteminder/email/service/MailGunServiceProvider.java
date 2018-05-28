@@ -24,6 +24,7 @@ public class MailGunServiceProvider extends MailServiceProvider {
                 .addHeader("Authorization", Credentials.basic("api", env.getProperty("mailgun.key")))
                 .build();
         Response response = client.newCall(request).execute();
+
         return response.isSuccessful();
     }
 
@@ -35,7 +36,6 @@ public class MailGunServiceProvider extends MailServiceProvider {
         FormBody.Builder formBodyBuilder = new FormBody.Builder()
                 .add("from", email.getSender().toString())
                 .add("subject", email.getSubject()).add("text", email.getContent());
-
         email.getToRecipients().forEach(to -> formBodyBuilder.add("to", to.toString()));
         email.getCcRecipients().forEach(cc -> formBodyBuilder.add("cc", cc.toString()));
         email.getBccRecipients().forEach(bcc -> formBodyBuilder.add("bcc", bcc.toString()));

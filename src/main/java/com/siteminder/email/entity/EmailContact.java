@@ -11,7 +11,6 @@ public class EmailContact {
     private String email;
 
     public EmailContact() {
-
     }
 
     public EmailContact(String email) {

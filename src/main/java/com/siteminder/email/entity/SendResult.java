@@ -39,13 +39,11 @@ public class SendResult {
     }
 
     public SendResult(String provider, int code) {
-
         this.provider = provider;
         this.code = code;
     }
 
     public SendResult(String provider, int code, String message) {
-
         this.provider = provider;
         this.code = code;
         this.message = message;
