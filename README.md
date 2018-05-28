@@ -22,9 +22,13 @@ This endpoint allow you send the plain text email.
  Email contact can be one of the following format:
  ```
  {"name":"Johh name","email":"john@email.com"}
- or 
+ ```
+ or ignore the name
+ ```
  {"email":"john@email.com"}
- or 
+ ```
+ or just simply the email string
+ ```
  "john.com"
 
 ```
@@ -33,10 +37,10 @@ This endpoint allow you send the plain text email.
 
 POST http://java-env.bm3tfm73sg.ap-southeast-2.elasticbeanstalk.com/sendEmail
 ```
-    {
+{
 	"sender":"test@test.com",
-	"content":"xxx",
-	"subject":"xxx",
+	"content":"Hello world",
+	"subject":"Welcome from Lu",
 	"toRecipients":["i@gfw.fail"]
-	}
+}
 ```
