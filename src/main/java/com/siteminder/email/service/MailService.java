@@ -25,7 +25,6 @@ public class MailService {
         this.providers = providers;
     }
 
-
     public void sendEmail(Email email) throws MailServiceUnavaliableException {
         if (providers.size() < 1) {
             logger.error("No MailService Provider defined. ");
@@ -46,5 +45,4 @@ public class MailService {
 
         throw new MailServiceUnavaliableException();
     }
-
 }

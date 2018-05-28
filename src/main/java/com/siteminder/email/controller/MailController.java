@@ -20,7 +20,6 @@ public class MailController {
         this.mailService = mailService;
     }
 
-
     @RequestMapping(value = "/sendEmail", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ResponseEntity<ValidResponse> sendEmail(@Validated @RequestBody Email email) throws MailServiceUnavaliableException, JsonProcessingException {

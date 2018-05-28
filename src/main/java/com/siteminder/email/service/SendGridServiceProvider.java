@@ -11,11 +11,9 @@ import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.stream.Collectors;
-
 
 @Service
 public class SendGridServiceProvider extends MailServiceProvider {
@@ -64,7 +62,6 @@ public class SendGridServiceProvider extends MailServiceProvider {
 
     private JSONArray buildEmailContactCollection(HashSet<EmailContact> emailContacts) {
         return new JSONArray(emailContacts.stream().map(this::buildEmailContact).collect(Collectors.toList()));
-
     }
 
     private JSONObject buildEmailContact(EmailContact emailContact) {
@@ -78,6 +75,4 @@ public class SendGridServiceProvider extends MailServiceProvider {
 
         return jsonObject;
     }
-
-
 }

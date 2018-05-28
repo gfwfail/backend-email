@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
-
 @Service
 public class MailGunServiceProvider extends MailServiceProvider {
     private final OkHttpClient client = new OkHttpClient();
@@ -39,6 +38,4 @@ public class MailGunServiceProvider extends MailServiceProvider {
 
         return formBodyBuilder.build();
     }
-
-
 }
