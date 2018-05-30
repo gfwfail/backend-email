@@ -10,6 +10,8 @@ import com.siteminder.email.entity.EmailContact;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.HashSet;
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 public class SendGridServiceProvider extends MailServiceProvider {
     private final OkHttpClient client = new OkHttpClient();
     private static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/json; charset=utf-8");
+    static final Logger logger = LoggerFactory.getLogger(MailGunServiceProvider.class);
 
     @Override
     public boolean sendEmail(Email email) throws IOException {
